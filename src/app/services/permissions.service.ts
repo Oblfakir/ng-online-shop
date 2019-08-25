@@ -1,9 +1,47 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { UserStatus } from '../constants/user-status';
+import { AppRoutes } from '../constants/routes';
+import { ErrorService } from './error.service';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class PermissionsService {
+	private _currentUserStatus: BehaviorSubject<UserStatus>;
 
-  constructor() { }
+	constructor(private errorService: ErrorService) {
+		this._currentUserStatus = new BehaviorSubject<UserStatus>(UserStatus.NONE);
+	}
+
+	public get currentUserStatus(): UserStatus {
+		return this._currentUserStatus.getValue();
+	}
+
+	public setCurrentUserStatus(status: UserStatus): void {
+		this._currentUserStatus.next(status);
+	}
+
+	public checkRouteAccess(route: string): boolean {
+		switch (route) {
+			case AppRoutes.ADD_PRODUCT: {
+				return this._currentUserStatus.getValue() === UserStatus.ADMIN;
+			}
+			case AppRoutes.ERROR.ROOT: {
+				return this.errorService.currentErrors.length > 0;
+			}
+			case AppRoutes.LOGIN: {
+				return this._currentUserStatus.getValue() === UserStatus.NONE;
+			}
+			case AppRoutes.PDP: {
+				return true;
+			}
+			case AppRoutes.PRODUCT_LIST: {
+				return true;
+			}
+			default: {
+				return false;
+			}
+		}
+	}
 }

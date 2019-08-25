@@ -1,6 +1,21 @@
 <div class="navbar">
-	<div class="navbar__title">
+	<a class="navbar__title" [routerLink]="['']">
 		NgShop
+	</a>
+
+	<div class="navbar__user-info">
+		<a [routerLink]="['/login']" class="navbar__login" *ngIf="isUserLoggedIn else navbarUserInfo">
+			<i class="material-icons navbar__login-icon">
+				account_circle
+			</i>
+			<span class="navbar__login-text">
+				Login
+			</span>
+		</a>
+
+		<ng-template #navbarUserInfo>
+
+		</ng-template>
 	</div>
 
 </div>

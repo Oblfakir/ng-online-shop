@@ -1,0 +1,36 @@
+@import '../../../common';
+
+.navbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 60px;
+	background: $primary-background;
+	padding: 10px 20px;
+	@include app-box-shadow();
+
+	&__title {
+		color: #FFF;
+		font-size: 20px;
+		text-decoration: none;
+	}
+
+	&__user-info {
+		margin-left: auto;
+	}
+
+	&__login {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+
+		&-icon {
+			color: #FFF;
+		}
+
+		&-text {
+			color: #FFF;
+			margin-left: 5px;
+		}
+	}
+}

@@ -1,0 +1,38 @@
+@import '../../../common';
+
+.login-form {
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 5px;
+	@include app-box-shadow();
+
+	&__header {
+		font-size: 20px;
+		color: $text-color;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+
+	&__fields {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__field {
+		@include input-field-styles;
+	}
+
+	&__actions {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__action {
+		@include primary-button-styles;
+	}
+}

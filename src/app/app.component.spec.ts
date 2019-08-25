@@ -20,16 +20,16 @@ describe('AppComponent', () => {
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have as title 'ng-refresh'`, () => {
+	it(`should have as title 'no-online-shop'`, () => {
 		const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.debugElement.componentInstance;
-		expect(app.title).toEqual('ng-refresh');
+		expect(app.title).toEqual('no-online-shop');
 	});
 
 	it('should render title', () => {
 		const fixture = TestBed.createComponent(AppComponent);
 		fixture.detectChanges();
 		const compiled = fixture.debugElement.nativeElement;
-		expect(compiled.querySelector('.content span').textContent).toContain('ng-refresh app is running!');
+		expect(compiled.querySelector('.content span').textContent).toContain('no-online-shop app is running!');
 	});
 });
