@@ -43,7 +43,8 @@
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
+	"no-consecutive-blank-lines": false,
+	"indent": [true, "tabs", 4],
     "no-console": [
       true,
       "debug",
