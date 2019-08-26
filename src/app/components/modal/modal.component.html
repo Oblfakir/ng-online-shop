@@ -1,0 +1,5 @@
+<div class="modal" *ngIf="modalContent" #modalContainer (click)="backgroundClickHandler($event)">
+    <div class="modal__content">
+        <ng-container *ngTemplateOutlet="modalContent"></ng-container>
+    </div>
+</div>

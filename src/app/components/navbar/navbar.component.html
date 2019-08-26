@@ -4,14 +4,14 @@
 	</a>
 
 	<div class="navbar__user-info">
-		<a [routerLink]="['/login']" class="navbar__login" *ngIf="isUserLoggedIn else navbarUserInfo">
+		<div (click)="handleLoginClick()" class="navbar__login" *ngIf="isUserLoggedIn else navbarUserInfo">
 			<i class="material-icons navbar__login-icon">
 				account_circle
 			</i>
 			<span class="navbar__login-text">
 				Login
 			</span>
-		</a>
+		</div>
 
 		<ng-template #navbarUserInfo>
 
@@ -19,3 +19,8 @@
 	</div>
 
 </div>
+
+<ng-template #loginForm>
+    <app-login-form></app-login-form>
+</ng-template>
+

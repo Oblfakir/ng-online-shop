@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
 	declarations: [
@@ -15,7 +16,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 		FooterComponent,
 		LoginFormComponent,
 		ProductComponent,
-		ProductListComponent
+		ProductListComponent,
+		ModalComponent
 	],
 	imports: [
 		CommonModule,
@@ -28,7 +30,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 		FooterComponent,
 		LoginFormComponent,
 		ProductComponent,
-		ProductListComponent
+		ProductListComponent,
+		ModalComponent
 	]
 })
 export class ComponentsModule { }

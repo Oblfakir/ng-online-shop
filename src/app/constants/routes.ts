@@ -6,7 +6,6 @@ export const AppRoutes = {
 		FORBIDDEN: '403',
 		CUSTOM: '',
 	},
-	LOGIN: 'login',
 	PDP: 'product',
 	PRODUCT_LIST: 'products',
 	USER_PAGE: 'user'

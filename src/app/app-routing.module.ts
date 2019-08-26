@@ -17,10 +17,6 @@ const routes: Routes = [
 		loadChildren: () => import('./pages/product-display-page/product-display-page.module').then(mod => mod.ProductDisplayPageModule)
 	},
 	{
-		path: AppRoutes.LOGIN,
-		loadChildren: () => import('./pages/login-page/login-page.module').then(mod => mod.LoginPageModule)
-	},
-	{
 		path: AppRoutes.ADD_PRODUCT,
 		loadChildren: () => import('./pages/add-product-page/add-product-page.module').then(mod => mod.AddProductPageModule)
 	},

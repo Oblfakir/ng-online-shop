@@ -22,7 +22,10 @@
 	&__login {
 		display: flex;
 		align-items: center;
-		text-decoration: none;
+        
+        &:hover {
+            cursor: pointer;
+        }
 
 		&-icon {
 			color: #FFF;

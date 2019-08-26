@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+    @ViewChild('loginForm') private loginFormRef: TemplateRef<any>;
 
-	constructor(private loginService: LoginService, private userInfoService: UserInfoService) { }
+    constructor(private loginService: LoginService,
+        private userInfoService: UserInfoService,
+        private modalService: ModalService) { }
 
-	ngOnInit() {
-	}
+    public handleLoginClick(): void {
+        this.modalService.showModalWindow(this.loginFormRef);
+    }
 
 	public isUserLoggedIn(): boolean {
 		return this.loginService.isUserLoggedIn;
