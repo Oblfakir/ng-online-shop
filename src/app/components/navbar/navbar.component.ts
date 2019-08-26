@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { UserInfoService } from 'src/app/services/user-info.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { ModalService } from 'src/app/services/modal.service';
 	styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-    @ViewChild('loginForm') private loginFormRef: TemplateRef<any>;
+    @ViewChild('loginForm', {static: false}) private loginFormRef: TemplateRef<any>;
 
     constructor(private loginService: LoginService,
         private userInfoService: UserInfoService,
@@ -19,7 +20,7 @@ export class NavbarComponent {
         this.modalService.showModalWindow(this.loginFormRef);
     }
 
-	public isUserLoggedIn(): boolean {
+	public get isUserLoggedIn(): Observable<boolean> {
 		return this.loginService.isUserLoggedIn;
 	}
 }

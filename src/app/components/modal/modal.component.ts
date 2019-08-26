@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 	styleUrls: ["./modal.component.scss"]
 })
 export class ModalComponent implements OnInit, OnDestroy {
-    @ViewChild('modalContainer') modalContainerRef: ElementRef;
+    @ViewChild('modalContainer', {static: false}) modalContainerRef: ElementRef;
 	public modalContent: TemplateRef<any>;
 	private _unsubscribe: Subject<boolean> = new Subject<boolean>();
 

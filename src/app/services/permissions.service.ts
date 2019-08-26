@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { UserStatus } from '../constants/user-status';
 import { AppRoutes } from '../constants/routes';
 import { ErrorService } from './error.service';
@@ -14,8 +14,8 @@ export class PermissionsService {
 		this._currentUserStatus = new BehaviorSubject<UserStatus>(UserStatus.NONE);
 	}
 
-	public get currentUserStatus(): UserStatus {
-		return this._currentUserStatus.getValue();
+	public get currentUserStatus(): Observable<UserStatus> {
+		return this._currentUserStatus.asObservable();
 	}
 
 	public setCurrentUserStatus(status: UserStatus): void {
@@ -29,9 +29,6 @@ export class PermissionsService {
 			}
 			case AppRoutes.ERROR.ROOT: {
 				return this.errorService.currentErrors.length > 0;
-			}
-			case AppRoutes.LOGIN: {
-				return this._currentUserStatus.getValue() === UserStatus.NONE;
 			}
 			case AppRoutes.PDP: {
 				return true;

@@ -4,7 +4,7 @@
 	</a>
 
 	<div class="navbar__user-info">
-		<div (click)="handleLoginClick()" class="navbar__login" *ngIf="isUserLoggedIn else navbarUserInfo">
+		<div (click)="handleLoginClick()" class="navbar__login" *ngIf="!(isUserLoggedIn | async) else navbarUserInfo">
 			<i class="material-icons navbar__login-icon">
 				account_circle
 			</i>

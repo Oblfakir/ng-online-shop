@@ -1,7 +1,10 @@
 <div class="login-form">
 	<div class="login-form__header">
 		Sign In
-	</div>
+    </div>
+    <div class="login-form__error" *ngIf="error">
+        {{error}}
+    </div>
 	<div class="login-form__fields">
 		<input type="text" class="login-form__field" placeholder="Username" [formControl]="usernameFormControl">
 		<input type="password" class="login-form__field" placeholder="Password" [formControl]="passwordFormControl">
