@@ -1,1 +1,27 @@
-<p>product works!</p>
+<div class="product" *ngIf="product">
+    <div class="product__image">
+        <img [src]="product.image">
+    </div>
+    <div class="product__name">
+        {{product.name}}
+    </div>
+    <div class="product__info">
+        <div class="product__info-category">
+            {{product.category}}
+        </div>
+        <div class="product__info-rating">
+            <app-rating [rating]="product.rating"></app-rating>
+        </div> 
+    </div>
+    <div class="product__price">
+        {{product.price + '$'}}
+    </div>
+    <div class="product__actions">
+        <button class="product__action" (click)="handleDetailedInfoClick()">
+            Detailed info
+        </button>
+        <button class="product__action" (click)="handleAddToBasketClick()">
+            Add to basket
+        </button>
+    </div>
+</div>

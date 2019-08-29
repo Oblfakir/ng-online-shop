@@ -9,6 +9,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ModalComponent } from './modal/modal.component';
+import { BasketComponent } from './basket/basket.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
 	declarations: [
@@ -17,7 +19,9 @@ import { ModalComponent } from './modal/modal.component';
 		LoginFormComponent,
 		ProductComponent,
 		ProductListComponent,
-		ModalComponent
+		ModalComponent,
+		BasketComponent,
+		RatingComponent
 	],
 	imports: [
 		CommonModule,

@@ -23,6 +23,14 @@ const routes: Routes = [
 	{
 		path: AppRoutes.ERROR.ROOT,
 		loadChildren: () => import('./pages/error-page/error-page.module').then(mod => mod.ErrorPageModule)
+    },
+    {
+		path: AppRoutes.CHECKOUT,
+		loadChildren: () => import('./pages/checkout-page/checkout-page.module').then(mod => mod.CheckoutPageModule)
+    },
+    {
+		path: AppRoutes.USER_PAGE,
+		loadChildren: () => import('./pages/user-page/user-page.module').then(mod => mod.UserPageModule)
 	},
 	{
 		path: '**',

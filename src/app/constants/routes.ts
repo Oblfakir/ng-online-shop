@@ -8,5 +8,6 @@ export const AppRoutes = {
 	},
 	PDP: 'product',
 	PRODUCT_LIST: 'products',
-	USER_PAGE: 'user'
+    USER_PAGE: 'user',
+    CHECKOUT: 'checkout'
 };

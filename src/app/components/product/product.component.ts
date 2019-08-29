@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
+import { Router } from '@angular/router';
+
+import { Product } from 'src/app/models/product';
+import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+	selector: "app-product",
+	templateUrl: "./product.component.html",
+    styleUrls: ["./product.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
+    @Input() public product: Product;
 
-  constructor() { }
+    constructor(private basketService: BasketService, private router: Router) {}
+    
+    public handleDetailedInfoClick(): void {
 
-  ngOnInit() {
-  }
+    }
 
+    public handleAddToBasketClick(): void {
+
+    }
 }
