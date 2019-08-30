@@ -38,7 +38,7 @@ export class Product {
     }
 
     public checkWithFilter(filter: Filter): boolean {
-        if (filter.query && !this.name.includes(filter.query)) {
+        if (filter.query && !this.name.toLowerCase().includes(filter.query.toLowerCase())) {
             return false;
         }
         if (filter.availableOnly && !this.available) {
@@ -47,7 +47,7 @@ export class Product {
         if (filter.category && this.category !== filter.category) {
             return false;
         }
-        if (filter.rating && this.rating < filter.rating) {
+        if (filter.rating && this.rating > filter.rating) {
             return false;
         }
         if (filter.priceFrom && this.price < filter.priceFrom) {

@@ -13,14 +13,14 @@
     <div class="product-filter__category">
         <label for="filter-category-selector">Category</label>
         <select id="filter-category-selector" formControlName="category">
-            <option value="none">none</option>
-            <option value="category">Category</option>
+            <option value="any">Any</option>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
         </select>
     </div>
     <div class="product-filter__rating">
         <label for="filter-rating-selector">Rating</label>
         <select id="filter-rating-selector" formControlName="rating">
-            <option value="any">Any</option>
+            <option value="0" selected>Any</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

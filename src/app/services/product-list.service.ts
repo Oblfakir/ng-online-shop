@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Product } from '../models/product';
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 const mockProductFactory = (id) => {
 	return new Product({
@@ -9,7 +9,7 @@ const mockProductFactory = (id) => {
 		name: 'Sample product ' + id,
 		id,
 		image: '/assets/images/product.png',
-		rating: 4,
+		rating: Math.floor(Math.random() * 6),
 		category: id % 2 === 0 ? 'Category 1' : 'Category 2',
 	});
 }
@@ -45,6 +45,14 @@ export class ProductListService {
 
 	public get products(): Observable<Product[]> {
 		return this._products.asObservable();
+	}
+
+	public get categoriesList(): Observable<string[]> {
+		return this._products
+			.pipe(
+				map((products: Product[]) => products.map((product: Product) => product.category)),
+				map((categories: string[]) => Array.from(new Set(categories)))
+			);
 	}
 
 	public fetchProducts(): void {

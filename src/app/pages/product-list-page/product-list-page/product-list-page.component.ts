@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Product } from 'src/app/models/product';
 import { ProductListService } from 'src/app/services/product-list.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, debounceTime } from 'rxjs/operators';
 import { FilterService } from 'src/app/services/filter.service';
 import { FormControl } from '@angular/forms';
 import { Filter } from 'src/app/models/filter';
@@ -19,7 +19,7 @@ export class ProductListPageComponent implements OnInit, OnDestroy {
 
 	constructor(private productListService: ProductListService,
 				private filterService: FilterService) {
-		this.filterFormControl = new FormControl(new Filter());				
+		this.filterFormControl = new FormControl(new Filter());	
 	}
 
 	ngOnInit() {
@@ -29,6 +29,10 @@ export class ProductListPageComponent implements OnInit, OnDestroy {
 				this.products = products;
 			});
 		this.productListService.fetchProducts();
+
+		this.filterFormControl.valueChanges
+			.pipe(debounceTime(300))
+			.subscribe((filter: Filter) => this.filterService.setFilter(filter));
 	}
 
 	ngOnDestroy(): void {
