@@ -1,7 +1,5 @@
 <div class="product" *ngIf="product">
-    <div class="product__image">
-        <img [src]="product.image">
-    </div>
+    <img class="product__image" [src]="product.image">
     <div class="product__name">
         {{product.name}}
     </div>

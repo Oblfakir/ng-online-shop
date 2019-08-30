@@ -11,6 +11,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ModalComponent } from './modal/modal.component';
 import { BasketComponent } from './basket/basket.component';
 import { RatingComponent } from './rating/rating.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +22,8 @@ import { RatingComponent } from './rating/rating.component';
 		ProductListComponent,
 		ModalComponent,
 		BasketComponent,
-		RatingComponent
+		RatingComponent,
+		ProductFilterComponent
 	],
 	imports: [
 		CommonModule,
@@ -35,7 +37,8 @@ import { RatingComponent } from './rating/rating.component';
 		LoginFormComponent,
 		ProductComponent,
 		ProductListComponent,
-		ModalComponent
+		ModalComponent,
+		ProductFilterComponent
 	]
 })
 export class ComponentsModule { }

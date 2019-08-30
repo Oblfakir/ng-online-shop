@@ -1,1 +1,12 @@
-<p>product-list-page works!</p>
+<div class="product-list-page">
+    <div class="product-list-page__filters">
+        <app-product-filter></app-product-filter>
+    </div>
+    <div class="product-list-page__list" *ngIf="products && products.length > 0 else productsLoading">
+        <app-product-list [products]="products"></app-product-list>
+    </div>
+    <ng-template #productsLoading>
+        <span>Loading...</span>
+    </ng-template>
+    
+</div>
