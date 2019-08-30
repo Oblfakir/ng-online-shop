@@ -1,11 +1,14 @@
+import { Filter } from './filter';
+
 export class Product {
     price: number;
-    name: number;
+    name: string;
     id: number;
     image: string;
     rating: number;
     category: string;
-    description?: string; 
+    description?: string;
+    available: boolean = true;
 
     constructor(productParams: any) {
         if (productParams.price) {
@@ -29,5 +32,30 @@ export class Product {
         if (productParams.description) {
             this.description = productParams.description;
         }
+        if (productParams.available) {
+            this.available = productParams.available;
+        }
+    }
+
+    public checkWithFilter(filter: Filter): boolean {
+        if (filter.query && !this.name.includes(filter.query)) {
+            return false;
+        }
+        if (filter.availableOnly && !this.available) {
+            return false;
+        }
+        if (filter.category && this.category !== filter.category) {
+            return false;
+        }
+        if (filter.rating && this.rating < filter.rating) {
+            return false;
+        }
+        if (filter.priceFrom && this.price < filter.priceFrom) {
+            return false;
+        }
+        if (filter.priceTo && this.price > filter.priceTo) {
+            return false;
+        }
+        return true;
     }
 }

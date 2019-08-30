@@ -1,0 +1,30 @@
+@import '../../../common';
+
+.product-filter {
+    display: flex;
+    padding: 20px 0;
+    &__search {
+        &-input {
+            @include input-field-styles;
+        }
+    }
+    &__available-only {
+        &-checkbox {
+
+        }
+    }
+    &__rating {
+
+    }
+    &__category {
+
+    }
+    &__price {
+        &-from {
+            @include input-field-styles;
+        }
+        &-to {
+            @include input-field-styles;
+        }
+    }
+}

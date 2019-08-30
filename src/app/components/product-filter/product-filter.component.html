@@ -1,1 +1,39 @@
-<p>product-filter works!</p>
+<div class="product-filter" [formGroup]="filterFormGroup">
+    <div class="product-filter__search">
+        <input type="text" class="product-filter__search-input"
+            formControlName="query"
+            placeholder="Product name...">
+    </div>
+    <div class="product-filter__available-only">
+        <input type="checkbox" class="product-filter__available-only-checkbox"
+            formControlName="availableOnly"
+            id="filter-available-checkbox">
+        <label for="filter-available-checkbox">Available Only</label>
+    </div>
+    <div class="product-filter__category">
+        <label for="filter-category-selector">Category</label>
+        <select id="filter-category-selector" formControlName="category">
+            <option value="none">none</option>
+            <option value="category">Category</option>
+        </select>
+    </div>
+    <div class="product-filter__rating">
+        <label for="filter-rating-selector">Rating</label>
+        <select id="filter-rating-selector" formControlName="rating">
+            <option value="any">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="product-filter__price">
+        <input type="text" class="product-filter__price-from"
+            formControlName="priceFrom"
+            placeholder="From">
+        <input type="text" class="product-filter__price-to"
+            formControlName="priceTo"
+            placeholder="To">
+    </div>
+</div>

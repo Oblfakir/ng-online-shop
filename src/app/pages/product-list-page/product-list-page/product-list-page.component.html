@@ -1,6 +1,6 @@
 <div class="product-list-page">
     <div class="product-list-page__filters">
-        <app-product-filter></app-product-filter>
+        <app-product-filter [formControl]="filterFormControl"></app-product-filter>
     </div>
     <div class="product-list-page__list" *ngIf="products && products.length > 0 else productsLoading">
         <app-product-list [products]="products"></app-product-list>

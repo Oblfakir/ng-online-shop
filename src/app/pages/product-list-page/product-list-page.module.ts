@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ProductListPageComponent } from './product-list-page/product-list-page.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
 	imports: [
 		RouterModule.forChild(routes),
 		CommonModule,
-		ComponentsModule
+		ComponentsModule,
+		ReactiveFormsModule
 	],
 	exports: [
 		RouterModule
