@@ -52,7 +52,8 @@
       "time",
       "timeEnd",
       "trace"
-    ],
+	],
+	"align": false,
     "no-empty": false,
     "no-inferrable-types": [
       true,
@@ -72,7 +73,7 @@
     "ordered-imports": false,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,

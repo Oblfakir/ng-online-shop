@@ -3,6 +3,15 @@
 		NgShop
 	</a>
 
+	<a class="navbar__basket" [routerLink]="['/checkout']">
+		<i class="material-icons navbar__basket-icon">
+			shopping_cart
+		</i>
+		<div class="navbar__basket-count" *ngIf="(productCount | async) > 0">
+			{{productCount | async}}
+		</div>
+	</a>
+
 	<div class="navbar__user-info">
 		<div (click)="handleLoginClick()" class="navbar__login" *ngIf="!(isUserLoggedIn | async) else navbarUserInfo">
 			<i class="material-icons navbar__login-icon">

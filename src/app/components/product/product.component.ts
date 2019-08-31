@@ -1,25 +1,25 @@
 import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
-import { Product } from 'src/app/models/product';
-import { BasketService } from 'src/app/services/basket.service';
+import { Product } from "src/app/models/product";
+import { BasketService } from "src/app/services/basket.service";
 
 @Component({
 	selector: "app-product",
 	templateUrl: "./product.component.html",
-    styleUrls: ["./product.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+	styleUrls: ["./product.component.scss"],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductComponent {
-    @Input() public product: Product;
+	@Input() public product: Product;
 
-    constructor(private basketService: BasketService, private router: Router) {}
-    
-    public handleDetailedInfoClick(): void {
+	constructor(private basketService: BasketService, private router: Router) { }
 
-    }
+	public handleDetailedInfoClick(): void {
+		this.router.navigate([`/product/${this.product.id}`]);
+	}
 
-    public handleAddToBasketClick(): void {
-
-    }
+	public handleAddToBasketClick(): void {
+		this.basketService.addProduct(this.product);
+	}
 }

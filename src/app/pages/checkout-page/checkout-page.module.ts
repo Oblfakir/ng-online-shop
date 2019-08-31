@@ -1,28 +1,30 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule, Routes } from '@angular/router';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { CheckoutPageGuard } from './checkout-page.guard';
+import { RouterModule, Routes } from "@angular/router";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { CheckoutPageGuard } from "./checkout-page.guard";
 
 const routes: Routes = [
-    {
-        path: '',
-        component: CheckoutComponent,
-        canActivate: [CheckoutPageGuard]
-    }
-]
+	{
+		path: "",
+		component: CheckoutComponent,
+		canActivate: [CheckoutPageGuard]
+	}
+];
 
 @NgModule({
-	declarations: [],
+	declarations: [
+		CheckoutComponent
+	],
 	imports: [
-        CommonModule,
-        RouterModule.forChild(routes)
-    ],
-    exports: [
-        RouterModule
-    ],
-    providers: [
-        CheckoutPageGuard
-    ]
+		CommonModule,
+		RouterModule.forChild(routes)
+	],
+	exports: [
+		RouterModule
+	],
+	providers: [
+		CheckoutPageGuard
+	]
 })
-export class CheckoutPageModule {}
+export class CheckoutPageModule { }
